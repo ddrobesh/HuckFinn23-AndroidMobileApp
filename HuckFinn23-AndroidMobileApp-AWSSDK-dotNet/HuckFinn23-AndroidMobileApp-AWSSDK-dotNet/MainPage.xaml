@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HuckFinn23_AndroidMobileApp_AWSSDK_dotNet.MainPage">
+
+    <StackLayout>
+        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
+            <Label Text="Welcome to Huck Finn 2023 (AWS SDK.NET Xamarin.Forms)!"
+                   HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+        </Frame>
+        <Label Text="First, view list of items retrieved from my remote AWS DynamoDB table:"
+               FontSize="Title" Padding="30,10,30,10"/>
+        <!-- Huck Finn View data here as 'sub' to MainPageViewModel.cs event model data change, per AWSDynamoDB fetch. It's empty when you havent connected to your DynamoDB. Ah? -->
+        <ListView ItemsSource="{Binding Data}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout>
+                            <Label Text="{Binding name}" FontAttributes="Bold"/>
+                            <Label Text="{Binding description}"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Label Text="Make UI View changes to this XAML file (MainPage.xaml). Hot-swap changes supported by XAML Hot Reload."
+               FontSize="16" Padding="30,0,30,0"/>
+        <Label FontSize="16" Padding="30,24,30,0">
+            <Label.FormattedText>
+                <FormattedString>
+                    <FormattedString.Spans>
+                        <Span Text="Learn more at "/>
+                        <Span Text="https://aka.ms/xamarin-quickstart" FontAttributes="Bold"/>
+                    </FormattedString.Spans>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+    </StackLayout>
+
+</ContentPage>
+
